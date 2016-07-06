@@ -54,7 +54,10 @@ RCT_EXPORT_METHOD(openPicker:(NSDictionary *)options
             imagePickerController.maximumNumberOfSelection = [[self.options objectForKey:@"maxFiles"] intValue];
             imagePickerController.showsNumberOfSelectedAssets = YES;
             imagePickerController.mediaType = QBImagePickerMediaTypeImage;
-            imagePickerController.assetCollectionSubtypes = @[@(PHAssetCollectionSubtypeSmartAlbumUserLibrary)];
+            imagePickerController.assetCollectionSubtypes = @[
+                                                              @(PHAssetCollectionSubtypeSmartAlbumUserLibrary),
+                                                              @(PHAssetCollectionSubtypeAlbumMyPhotoStream)
+                                                              ];
             
             UIViewController *root = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
             dispatch_async(dispatch_get_main_queue(), ^{
